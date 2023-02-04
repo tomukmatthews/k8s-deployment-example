@@ -10,6 +10,6 @@ spec:
   ports:
     # this is the port that the service will listen on
     - port: 80
-      # # forward traffic to the correct container port
-      # targetPort: 80
-      # protocol: TCP
+      # forward traffic to the correct container port
+      targetPort: 80
+      protocol: TCP
