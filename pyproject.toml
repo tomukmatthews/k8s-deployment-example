@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "k8s-local-deployment-example"
+version = "0.0.0"
+description = "k8s local deployment example"
+license = "MIT"
+authors = ["Tom Matthews <tomukmatthews@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8.1"
+fastapi = "^0.89.1"
+uvicorn = "^0.20.0"
+numpy = "^1.24.1"
+locust = "^2.14.2"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+isort = "^5.10.1"
+pytest = "^7.2.0"
+pytest-icdiff = "^0.6"
+flake8 = "^6.0.0"
+
+[tool.black]
+line-length = 120
+skip-string-normalization = 1 
+
+[tool.isort]
+line_length = 120
+profile = "black"
+
+[build-system]
+requires = ["setuptools>=42", "wheel", "pybind11~=2.6.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.cibuildwheel]
+skip = ["cp36-*", "cp37-*"]

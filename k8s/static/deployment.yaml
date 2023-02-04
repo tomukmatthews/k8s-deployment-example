@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-app
+
+# deployment config
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: fastapi-app
+  # every pod config
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+
+    spec:
+      containers:
+        - name: fastapi-app-container
+          image: k8s-deployment-example
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"

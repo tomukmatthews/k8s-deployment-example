@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-app-service
+spec:
+  type: ClusterIP
+  # selector is used to find the pods that this service should route to
+  selector:
+    app: fastapi-app
+  ports:
+    # this is the port that the service will listen on
+    - port: 80
+      # # forward traffic to the correct container port
+      # targetPort: 80
+      # protocol: TCP
