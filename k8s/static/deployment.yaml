@@ -1,10 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-app
+  name: fastapi-app-deployment
 
 # deployment config
 spec:
+  # The num replcias will be overridden by the Horizontal Pod Autoscaler if we create that resource
   replicas: 5
   selector:
     matchLabels:
@@ -18,7 +19,7 @@ spec:
     spec:
       containers:
         - name: fastapi-app-container
-          image: k8s-deployment-example
+          image: fastapi-entropy-app
           imagePullPolicy: Never
           ports:
             - containerPort: 80
