@@ -139,6 +139,8 @@ You can scale up the number of replicas to 10 pods with:
 
 `kubectl scale --replicas=10 deployment/fastapi-app-deployment`
 
+### Locust Demo
+
 ![](https://github.com/tomukmatthews/k8s-deployment-example/blob/main/gifs/locust_demo.gif)
 
 ## Autoscaling
