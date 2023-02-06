@@ -1,6 +1,6 @@
 # k8s local deployment example
 
-In this tutorial, we will be deploying a simple FastAPI app with an endpoint that calculates the entropy of a list of numbers to a local Kubernetes cluster. The goal is to help you understand how to deploy a containerized application on a local Kubernetes cluster, see [Kubernetes Key Concepts](###kubernetes-key-concepts) for a primer on Kubernetes concepts.
+In this tutorial, we will be deploying a simple FastAPI app with an endpoint that calculates the entropy of a list of numbers to a local Kubernetes cluster. The goal is to help you understand how to deploy a containerized application on a local Kubernetes cluster, see Kubernetes Key Concepts section in the Appendix for a primer on Kubernetes concepts.
 
 ### Caveats:
 - This is a very simple getting started type example, it's not production ready. This is a local deployment, so it's not really a cluster, but it's a good way to get started with Kubernetes.
