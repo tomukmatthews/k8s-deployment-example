@@ -3,10 +3,12 @@ kind: Ingress
 metadata:
   name: fastapi-app-ingress
   annotations:
-    # this annotation tells the ingress controller to use the nginx ingress controller
+    # This annotation tells the ingress controller to use the nginx ingress controller
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+# Spec block defines the desired behavior of the ingress resource.
 spec:
+  # Rules define how incoming traffic should be handled.
   rules:
     - host: fastapi-app.com
       http:
@@ -15,7 +17,8 @@ spec:
             pathType: Prefix
             backend:
               service:
-                # this is the name of the service defined in service.yaml
+                # This is the name of the service to which traffic should be forwarded (defined in service.yaml).
                 name: fastapi-app-service
                 port:
+                  # Port used by the service.
                   number: 80

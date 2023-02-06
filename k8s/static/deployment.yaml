@@ -1,33 +1,48 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  # Name of the Deployment resource
   name: fastapi-app-deployment
 
-# deployment config
+# Configuration for the Deployment resource
 spec:
-  # The num replcias will be overridden by the Horizontal Pod Autoscaler if we create that resource
+  # Number of replicas of the Pod to run
+  # The number of replicas can be overridden by the Horizontal Pod Autoscaler (HPA) resource if created
   replicas: 5
   selector:
+    # Labels used to select the Pods to be managed by the Deployment
     matchLabels:
       app: fastapi-app
-  # every pod config
+  # Template for the Pod to be created by the Deployment
   template:
     metadata:
+      # Labels for the Pod
       labels:
         app: fastapi-app
-
+    # Specification for the containers to run in the Pod
     spec:
+      # List of containers to run in the Pod
       containers:
         - name: fastapi-app-container
+          # Image to use for the container
           image: fastapi-entropy-app
+          # Specifying the image pull policy for the container
+          # "Never" means the image is not pulled from a registry - we don't need to because we manually loaded it into
+          # the cluster with miniKube
           imagePullPolicy: Never
+          # Port mapping for the container
           ports:
             - containerPort: 80
               protocol: TCP
+          # Resource requirements for the container
           resources:
+            # Resource limits for the container - the max amount of resources the container can use.
             limits:
+              # Memory limit for the container in Mi
               memory: "512Mi"
+              # CPU limit for the container in millicores
               cpu: "500m"
+            # Resource requests for the container - how much roughly we think we'll need / ask for.
             requests:
               memory: "256Mi"
               cpu: "250m"
