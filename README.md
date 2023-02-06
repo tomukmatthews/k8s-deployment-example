@@ -1,4 +1,4 @@
-# k8s local deployment example (MacOS only)
+# k8s local deployment walkthrough (MacOS only)
 
 In this tutorial, we will be deploying a simple FastAPI app with an endpoint that calculates the entropy of a list of numbers to a local Kubernetes cluster. The goal is to help you understand how to deploy a containerized application on a local Kubernetes cluster and the concepts involved in it.
 
